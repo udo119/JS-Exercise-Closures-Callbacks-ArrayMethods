@@ -52,8 +52,6 @@ function processLength(list, callback) {
   /* CODE HERE */
     return callback(list.length);
   }
- (processLength(['foo, bar'], (num) => num + 1000));
-
 /**
  * ### Challenge `processLastItem`
  * 
@@ -70,7 +68,6 @@ function processLength(list, callback) {
 */
 function processLastItem(stringList, callback) {
   /* CODE HERE */
-  console.log(stringList)
   let item = stringList[stringList.length-1];
   return callback(item)
 }
@@ -93,8 +90,8 @@ function processLastItem(stringList, callback) {
 */
 function processSum(numberList, callback) {
   /* CODE HERE */
-  const sum = numberList.reduce((acc, currentValue) => acc + currentValue, 0)
-  console.log(callback(sum));
+  return callback(numberList.reduce((numberList, callback) => numberList + callback, 0))
+
 }
 
 /**
@@ -116,8 +113,7 @@ function processSum(numberList, callback) {
  * should return 1000.
 */
 function processProduct(num1, num2, callback) {
- const multiply = (num1, num2); =>  num1 * num2;
- return callback(multiply);
+ return callback (num1 * num2);
 }
 
 /**
@@ -231,12 +227,13 @@ function firstNamesAllCaps(runners) {
 function getRunnersByTShirtSize(runners, size) {
   /* CODE HERE */
   const getRunnersByTShirtSize = []
-  runners.map ((runner) => runner.shirt_size === size && getRunnersByTShirtSize);
+  runners.map ((runner) => runner.shirt_size === size && getRunnersByTShirtSize.push(runner));
   return getRunnersByTShirtSize
 
 }
 
 /**
+ *
  * ### Challenge `tallyUpDonations`
  * 
  * @instructions
@@ -298,8 +295,17 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(maxValue) {
+  let count = 0;
+  function counter(){
+    if(count <= maxValue){
+      return count ++;
+    }else{
+      count = 0;
+      return count++;
+    }
+  }
+  return counter;
 }
 
 /////////////// END OF CHALLENGE ///////////////
